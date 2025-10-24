@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Indian Army Pension Calculator v3 - pension, DA, MSP, gratuity, commutation & family pension estimates (informational only)." />
+  <title>Indian Army Pension Calculator — Detailed (v3)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <img src="army_logo.png" alt="Indian Army Logo" class="logo" />
+      <div>
+        <h1>Indian Army Pension Calculator</h1>
+        <p class="sub">Detailed estimates: Basic Pension, DA, MSP, Gratuity, Commutation & Family Pension</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card inputs">
+      <h2>Inputs</h2>
+
+      <label>Rank / Category</label>
+      <select id="rankSelect" onchange="applyMSPbyRank()">
+        <option value="sepoy" data-msp="5200">Sepoy / OR (MSP ₹5,200)</option>
+        <option value="nco" data-msp="5200">NCO / JCO (MSP ₹5,200)</option>
+        <option value="subedar" data-msp="5200">Subedar / Subedar Major (MSP ₹5,200)</option>
+        <option value="lieutenant" data-msp="15500">Lieutenant / Officer (MSP ₹15,500)</option>
+        <option value="major" data-msp="15500">Major / Senior Officer (MSP ₹15,500)</option>
+        <option value="colonel" data-msp="15500">Colonel+ (MSP ₹15,500)</option>
+      </select>
+
+      <label>Last Basic Pay (₹)</label>
+      <input id="basicPay" type="number" min="0" value="55000" />
+
+      <label>Military Service Pay - MSP (₹) <small>(preset from rank but editable)</small></label>
+      <input id="msp" type="number" min="0" value="5200" />
+
+      <label>Qualifying Service (years)</label>
+      <input id="serviceYears" type="number" min="0" max="40" value="28" />
+
+      <label>DA Percentage (%)</label>
+      <input id="daPercent" type="number" min="0" value="46" />
+
+      <label>Commutation % (0–50)</label>
+      <input id="commutationPct" type="number" min="0" max="50" value="40" />
+
+      <label>Commutation Factor (use official table if available)</label>
+      <input id="commutationFactor" type="number" step="0.01" value="12.0" />
+
+      <div class="actions">
+        <button onclick="calculateAll()">Calculate</button>
+        <button onclick="resetForm()" class="outline">Reset</button>
+      </div>
+
+      <p class="note"><strong>Note:</strong> This calculator provides estimates only. Official rules (pension rules, commutation factors, gratuity caps) may change — always verify with official sources.</p>
+    </section>
+
+    <section class="card results" id="resultsCard" aria-live="polite">
+      <h2>Results</h2>
+      <div id="results">
+        <p class="muted">Enter inputs and click <em>Calculate</em> to see results.</p>
+      </div>
+      <details class="explain">
+        <summary>Calculation notes & formulas</summary>
+        <ul>
+          <li><strong>Basic Pension:</strong> (Basic Pay + MSP) × 50% — or average of last 10 months if that gives more benefit. (Source: Department of Ex-Servicemen Welfare / pension rules).</li>
+          <li><strong>DA:</strong> Dearness Allowance applied on basic pension.</li>
+          <li><strong>Gratuity:</strong> Calculated as (15/26) × Last Basic Pay × Qualifying Years (common formula used for gratuity). A statutory ceiling (e.g., ₹20,00,000) may apply as per latest government rule.</li>
+          <li><strong>Commutation:</strong> Commuted amount = pension × (commutation%/100). Commutation lump sum = commuted amount × commutation factor. Post‑commutation pension = pension − commuted amount.</li>
+        </ul>
+      </details>
+      <div class="sources">
+        <strong>Sources:</strong>
+        <ul>
+          <li><a href="#" id="src1">Department of Ex‑Servicemen Welfare — pension rules</a></li>
+          <li><a href="#" id="src2">Gratuity calculation references</a></li>
+          <li><a href="#" id="src3">MSP amounts (7th CPC summary)</a></li>
+      </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="tricolor"></div>
+      <p>Made with respect for India's Armed Forces — informational tool © 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

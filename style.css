@@ -1,0 +1,42 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,#f5f7f5 0%, #eef3ee 100%);
+  color: #222;
+}
+header {
+  background: linear-gradient(90deg, #ff9933, #fff 40%, #4b5320);
+  padding: 18px 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.header-inner { display:flex; align-items:center; gap:14px; max-width:980px; margin:0 auto; }
+.logo { width:72px; height:72px; object-fit:contain; border-radius:8px; background:#fff; padding:6px; box-shadow:0 2px 6px rgba(0,0,0,0.08);}
+h1 { margin:0; font-size:20px; color:#1f2b20; }
+.sub { margin:4px 0 0 0; color:#26341f; font-weight:600; font-size:13px; }
+
+main { max-width:980px; margin:22px auto; display:grid; grid-template-columns: 1fr 1fr; gap:20px; padding:0 12px; }
+.card { background:#fff; border-radius:12px; padding:18px; box-shadow:0 6px 20px rgba(43,58,34,0.06); }
+.inputs label { display:block; margin-top:12px; font-weight:600; color:#2b3a26; }
+.inputs input, .inputs select { width:100%; padding:10px 12px; margin-top:6px; border-radius:8px; border:1px solid #d6d9d4; font-size:14px; }
+.actions { display:flex; gap:10px; margin-top:14px; }
+button { background:#4b5320; border:none; color:#fff; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
+button.outline { background:transparent; color:#4b5320; border:2px solid #d6d9d4; }
+.note { font-size:13px; color:#4b5320; margin-top:10px; }
+
+.results h2 { margin-top:0; }
+#results p.muted { color:#56624d; }
+.result-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px; }
+.result-card { background: linear-gradient(180deg,#fbfff8,#f3f8f0); padding:12px; border-radius:10px; border:1px solid #e7efe0; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+.result-card h3 { margin:0 0 6px 0; font-size:14px; color:#28321f; }
+.result-card p { margin:0; font-weight:700; font-size:16px; color:#13210f; }
+
+.explain summary { cursor:pointer; font-weight:600; color:#2b3a26; }
+.sources { margin-top:12px; font-size:13px; color:#4b5320; }
+.sources a { color:#0b3b07; text-decoration:none; }
+
+footer { max-width:980px; margin:20px auto; padding:12px; }
+.tricolor { height:6px; border-radius:6px; background: linear-gradient(90deg,#ff9933,#fff,#138808); margin-bottom:8px; }
+@media (max-width:880px) {
+  main { grid-template-columns: 1fr; padding-bottom:40px; }
+}
